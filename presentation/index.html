@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSJena - VueJS Essentials</title>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+        body {
+            font-family: 'Droid Serif';
+        }
+        h1,
+        h2,
+        h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: normal;
+        }
+        .remark-slide-number {
+            display: none;
+        }
+        .remark-slide-content {
+            background-color: #f7df1eff;
+            background-image: url(https://raw.githubusercontent.com/javascript-in-jena/ci/develop/quadratisch/variante4.png);
+            background-position: bottom right;
+            background-size: 25%;
+        }
+        .remark-code,
+        .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+        a {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="source">
+
+class: center, middle
+
+
+<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.32 170.02"><defs><style>.cls-1{fill:#42b883;}.cls-2{fill:#35495e;}</style></defs><title>logo</title><polygon class="cls-1" points="120.83 0 98.16 39.26 75.49 0 0 0 98.16 170.02 196.32 0 120.83 0"/><polygon class="cls-2" points="120.83 0 98.16 39.26 75.49 0 39.26 0 98.16 102.01 157.06 0 120.83 0"/></svg>
+
+# VueJS Essentials
+
+---
+
+# Agenda
+
+1. Adoption
+2. Kernkonzept
+3. Beispiel Projekt
+4. Installation
+5. Vue Komponenten
+6. Direktiven, Mixins & Plugins
+
+---
+
+class: center, middle
+
+# 1. Adoption
+
+<img height="400" src="https://www.commitstrip.com/wp-content/uploads/2018/08/Strip-Match-Github-REact-650-finalenglish.jpg" />
+
+???
+
+- Entwickelt von Evan You
+- 114k Github Stars
+- Äußerst beliebt in China
+- Adaption steigend, hauptsächlich wegen des pragmatischen Entwicklungsansatzes
+
+---
+
+class: center, middle
+
+# 2. Kernkonzept
+
+<img height="400" src="https://012.vuejs.org/images/mvvm.png" />
+
+???
+
+- VueJS ist ein einfacher und flexibler view layer
+- Fokus auf Komposition
+- Kann für kleine Projekte verwendet werden gibt aber die Möglichkeit zu skalieren
+- Verbindet die View mit einem Model mittels 2way Databinding
+- API ist stark beeinflusst durch AngularJS und KnockoutJS
+
+---
+
+class: center, middle
+
+# 3. Beispiel Projekt
+
+---
+
+class: center, middle
+
+# 4. Installation
+
+???
+
+- Devtools
+- ViewModel // var vm = new Vue({ /* options */ })
+- View // vm.$el
+- Model // vm.$data
+
+---
+
+class: center, middle
+
+# 5. Single File Komponenten
+
+???
+
+- Script Type
+- Style Type
+- VueJS Tools
+
+---
+
+class: middle
+
+5.1 Template Syntax
+
+```javascript
+<template>
+  <div>
+    <h1 class="title" :class="{ subtitle: isSubtitle }">Hello {{ myVar }}</h1>
+    <h2>{{ `Interpolate ${ myVar2 }` }}</h2>
+    <input :value="propVar" placeholder="{{ inputPlaceholder }}" />
+    <span v-if="conditionVar === 2">In case {{ conditionVar }} is 2</span>
+    <span v-else>If {{ conditionVar }} is not 2</span>
+    <p>{{ message | capitilizeFilter }}</p>
+  </div>
+</template>
+```
+
+???
+
+- Mustache Bindings
+- Afterwards parsed to a virtual dom function
+- template can be also defined with a render function
+- Can only have one root node
+
+---
+
+class: center, middle
+
+5.2 Props
+
+---
+
+class: center, middle
+
+5.3 Data Binding
+
+---
+
+class: center, middle
+
+5.4 Computed Properties
+
+---
+
+class: center, middle
+
+5.5 Komposition
+
+???
+
+- Slots
+- Dynamic Components
+- Higher Order Components
+
+---
+
+class: center, middle
+
+6. Direktiven, Mixins & Plugins
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+        var slideshow = remark.create();
+    </script>
+</body>
+
+</html>

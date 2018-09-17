@@ -1,15 +1,33 @@
 <template>
   <div class="wrapper">
+    <search-toggle class="search-toggle" @toggle="onOverlayToggle" v-if="!searchOverlay" />
+    <search-input @close="onOverlayToggle" v-else />
     <cards />
   </div>
 </template>
 
 <script>
-  import Cards from './components/Cards';
+  import Cards from './views/Cards';
+  import SearchToggle from './components/SearchToggle';
+  import SearchInput from './components/SearchInput';
 
   export default {
+    data () {
+      return {
+        searchOverlay: false
+      }
+    },
+
+    methods: {
+      onOverlayToggle () {
+        this.searchOverlay = !this.searchOverlay
+      }
+    },
+
     components: {
-      Cards
+      Cards,
+      SearchToggle,
+      SearchInput
     }
   }
 </script>
@@ -73,4 +91,13 @@
     box-shadow: none;
   }
 
+  .search-toggle {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+
+  .icon {
+    fill: currentColor;
+  }
 </style>

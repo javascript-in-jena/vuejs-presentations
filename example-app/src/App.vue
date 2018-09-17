@@ -1,13 +1,17 @@
 <template>
-  <div class="wrapper"></div>
+  <div class="wrapper">
+    <cards />
+  </div>
 </template>
 
 <script>
+  import Cards from './components/Cards';
 
-export default {
-  name: 'app',
-  components: {}
-}
+  export default {
+    components: {
+      Cards
+    }
+  }
 </script>
 
 <style lang="scss">

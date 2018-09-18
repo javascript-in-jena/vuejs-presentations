@@ -1,7 +1,7 @@
 <template>
   <div class="search__wrapper">
     <button class="search__close" @click="onClose"><close-icon /></button>
-    <input class="search__input" placeholder="Suchen" @input="onSearch"/>
+    <input class="search__input" placeholder="Suchen" @input="onSearch" v-focus @keyup.enter="onClose" @keyup.esc="reset"/>
   </div>
 </template>
 
@@ -15,6 +15,10 @@
       },
       onSearch (evt) {
         this.$emit('search', evt.target.value)
+      },
+      reset (evt) {
+        this.$emit('search', '')
+        this.$emit('close')
       }
     },
     components: {

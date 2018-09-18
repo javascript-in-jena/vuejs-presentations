@@ -152,8 +152,4 @@
     top: 20px;
     right: 30px;
   }
-
-  .icon {
-    fill: currentColor;
-  }
 </style>

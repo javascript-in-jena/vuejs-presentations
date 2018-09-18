@@ -6,34 +6,16 @@
         :key="index"
         :poster="movie.Poster"
       />
+      <div class="cards__empty" v-if="movies.length === 0">Keine Filme gefunden</div>
     </div>
   </div>
 </template>
 
 <script>
-  import BeautyAndTheBeast from '../data/beauty-and-the-beast'
-  import BladeRunner from '../data/blade-runner'
-  import FightClub from '../data/fight-club'
-  import Moonlight from '../data/moonlight'
-  import StarWars from '../data/star-wars'
-  import JungleBook from '../data/the-jungle-book'
-
   import Card from '../components/Card'
 
   export default {
-    data () {
-      return {
-        movies: [
-          BeautyAndTheBeast,
-          BladeRunner,
-          FightClub,
-          Moonlight,
-          StarWars,
-          JungleBook
-        ]
-      }
-    },
-
+    props: ['movies'],
     components: {
       Card
     }
@@ -57,5 +39,10 @@
     margin: 0 auto;
     justify-content: center;
     align-content: center;
+  }
+
+  .cards__empty {
+    color: beige;
+    font-size: 52px;
   }
 </style>

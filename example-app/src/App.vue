@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
-    <span style="color: white;">{{ query }}</span>
     <search-toggle class="search-toggle" @toggle="onOverlayToggle" v-if="!searchOverlay" />
     <search-input @close="onOverlayToggle" @search="updateSearchQuery" v-else />
-    <cards />
+    <cards :movies="filteredMovies" />
   </div>
 </template>
 
@@ -12,17 +11,39 @@
   import SearchToggle from './components/SearchToggle';
   import SearchInput from './components/SearchInput';
 
+  // Data
+  import BeautyAndTheBeast from './data/beauty-and-the-beast'
+  import BladeRunner from './data/blade-runner'
+  import FightClub from './data/fight-club'
+  import Moonlight from './data/moonlight'
+  import StarWars from './data/star-wars'
+  import JungleBook from './data/the-jungle-book'
+
   export default {
     data () {
       return {
         searchOverlay: false,
-        query: null
+        query: '',
+        movies: [
+          BeautyAndTheBeast,
+          BladeRunner,
+          FightClub,
+          Moonlight,
+          StarWars,
+          JungleBook
+        ],
+        // filteredMovies: []
       }
     },
 
     methods: {
       onOverlayToggle () {
+        if (!this.searchOverlay) {
+          this.query = ''
+        }
+
         this.searchOverlay = !this.searchOverlay
+
       },
 
       updateSearchQuery (query) {
@@ -30,11 +51,40 @@
       }
     },
 
+    computed: {
+      filteredMovies () {
+
+        if (!this.query) {
+          return this.movies
+        }
+
+        return this.movies.filter(movie =>
+          movie.Title.toLowerCase().includes(this.query.toLowerCase())
+        )
+      }
+    },
+
+    // watch: {
+    //   query () {
+    //     if (!this.query) {
+    //       this.filteredMovies = this.movies
+    //     } else {
+    //       this.filteredMovies = this.movies.filter(movie =>
+    //         movie.Title.toLowerCase().includes(this.query.toLowerCase())
+    //       )
+    //     }
+    //   },
+    // },
+
     components: {
       Cards,
       SearchToggle,
       SearchInput
-    }
+    },
+
+    // mounted () {
+    //   this.filteredMovies = this.movies
+    // }
   }
 </script>
 

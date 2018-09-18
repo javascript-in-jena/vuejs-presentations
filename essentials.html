@@ -42,10 +42,22 @@
 
 class: center, middle
 
-
 <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.32 170.02"><defs><style>.cls-1{fill:#42b883;}.cls-2{fill:#35495e;}</style></defs><title>logo</title><polygon class="cls-1" points="120.83 0 98.16 39.26 75.49 0 0 0 98.16 170.02 196.32 0 120.83 0"/><polygon class="cls-2" points="120.83 0 98.16 39.26 75.49 0 39.26 0 98.16 102.01 157.06 0 120.83 0"/></svg>
 
 # VueJS Essentials
+
+---
+
+class: center, middle
+
+# Über Mich
+
+<img src="https://avatars2.githubusercontent.com/u/7794717?s=460&v=4" width="250" style="border-radius: 125px"/>
+
+## Alexander Heimbuch
+[@zusatzstoff](https://twitter.com/zusatzstoff)<br/>
+[alexander.heimbu.ch](https://alexander.heimbu.ch)<br/>
+[github.com/alexander-heimbuch](https://github.com/alexander-heimbuch)
 
 ---
 
@@ -84,10 +96,26 @@ class: center, middle
 ???
 
 - VueJS ist ein einfacher und flexibler view layer
-- Fokus auf Komposition
+- Fokus auf Komposition und Funktionalität
 - Kann für kleine Projekte verwendet werden gibt aber die Möglichkeit zu skalieren
 - Verbindet die View mit einem Model mittels 2way Databinding
 - API ist stark beeinflusst durch AngularJS und KnockoutJS
+
+---
+
+class: center, middle
+
+# 2. Kernkonzept
+
+<a href="https://jsbin.com/vuxesaz/edit?html,js,output" target="_blank"><img height="300" src="https://vuejs.org/images/components.png" /></a>
+
+???
+
+- Können mehrere Vue Instanzen auf einer Seite existieren
+- Eine Instanz teilt sich in einen Komponenten Baum auf, der wiederum einzelen Vue Instanzen enthält
+- ViewModel // var vm = new Vue({ /* options */ })
+- View // vm.$el
+- Model // vm.$data
 
 ---
 
@@ -97,34 +125,40 @@ class: center, middle
 
 ---
 
-class: center, middle
+class: middle
 
 # 4. Installation
 
+```bash
+$ npm install -g @vue/cli
+$ vue create example-app
+$ yarn serve
+```
+
 ???
 
+- VueCLI
 - Devtools
-- ViewModel // var vm = new Vue({ /* options */ })
-- View // vm.$el
-- Model // vm.$data
 
 ---
 
 class: center, middle
 
-# 5. Single File Komponenten
+# 5. Vue Komponenten
 
 ???
 
 - Script Type
 - Style Type
-- VueJS Tools
+- empty project
+- yarn add node-sass sass-loader --dev
+- yarn add normalize-scss
 
 ---
 
 class: middle
 
-5.1 Template Syntax
+# Template Syntax
 
 ```javascript
 <template>
@@ -145,43 +179,83 @@ class: middle
 - Afterwards parsed to a virtual dom function
 - template can be also defined with a render function
 - Can only have one root node
+- Create cards component
+- Create styles
+- Import movie data
+- Render Cards
 
 ---
 
 class: center, middle
 
-5.2 Props
+# Komponenten Kommunikation
+
+<img src="https://cdn-images-1.medium.com/max/1600/0*Xzkw0-T4Uea3d5Yh.png" width="500" />
+
+???
+
+- Cards View Component
+- Card Component
+- Poster prop
+- Search Toggle
+- Search Input
+- Event Emitting (@load, @error)
 
 ---
 
 class: center, middle
 
-5.3 Data Binding
+# Data Binding
+
+<a href="https://jsbin.com/nezafus/edit?js,console,output" target="_blank">
+  <img src="https://vuejs.org/images/data.png" width="600" />
+</a>
+
+???
+- Reactive Databindings
+- ES5 DefineProperty Magic
+- Search String Example
+- Limitations in Arrays, deep nested Objects
 
 ---
 
 class: center, middle
 
-5.4 Computed Properties
+# Computed and Watch Properties
+
+???
+- Filter list of movies
+- Move data to App root
+- Use watch to filter the results
+- Use a computed result of multiple properties
+- Filter property
+- Reset search
 
 ---
 
 class: center, middle
 
-5.5 Komposition
+# Komposition
 
 ???
 
 - Slots
-- Dynamic Components
 - Higher Order Components
+- Icons Refactor
+- Generic Icon Component
 
 ---
 
 class: center, middle
 
-6. Direktiven, Mixins & Plugins
+# 6. Direktiven & Filter
 
+???
+
+- Search focus
+- Advanced key handlings
+- @keyup.esc and @keyup.enter
+- Uppercase filter
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">

@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
+    <span style="color: white;">{{ query }}</span>
     <search-toggle class="search-toggle" @toggle="onOverlayToggle" v-if="!searchOverlay" />
-    <search-input @close="onOverlayToggle" v-else />
+    <search-input @close="onOverlayToggle" @search="updateSearchQuery" v-else />
     <cards />
   </div>
 </template>
@@ -14,13 +15,18 @@
   export default {
     data () {
       return {
-        searchOverlay: false
+        searchOverlay: false,
+        query: null
       }
     },
 
     methods: {
       onOverlayToggle () {
         this.searchOverlay = !this.searchOverlay
+      },
+
+      updateSearchQuery (query) {
+        this.query = query
       }
     },
 

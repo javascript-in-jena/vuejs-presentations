@@ -13,9 +13,8 @@
       onClose () {
         this.$emit('close')
       },
-
-      onSearch ({ value }) {
-        this.$emit('search', value)
+      onSearch (evt) {
+        this.$emit('search', evt.target.value)
       }
     }
   }
